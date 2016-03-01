@@ -9,6 +9,5 @@
 
     <context:annotation-config />
     <context:component-scan base-package="io.dojogeek.gofrs.*"/>
-    <!--bean id="readingRest" class="io.dojogeek.gofrs.rest.impl.ReadingRestImpl"/-->
 
 </beans>

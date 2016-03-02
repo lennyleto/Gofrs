@@ -1,5 +1,6 @@
 package io.dojogeek.gofrs.rest.impl;
 
+import com.wordnik.swagger.annotations.ApiParam;
 import io.dojogeek.gofrs.rest.ReadingRest;
 import io.dojogeek.gofrs.rest.entities.Reading;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class ReadingRestImpl implements ReadingRest {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateReading(String id, Reading reading) {
+    public Response updateReading(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id, Reading reading) {
         return null;
     }
 
@@ -37,7 +38,7 @@ public class ReadingRestImpl implements ReadingRest {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response deleteReading(String id) {
+    public Response deleteReading(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id) {
         return null;
     }
 
@@ -45,7 +46,7 @@ public class ReadingRestImpl implements ReadingRest {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response getReadingsByUserId(String userId) {
+    public Response getReadingsByUserId(@ApiParam(value = "userId", required = true) @PathParam(value = "userId") String userId) {
 
         return null;
     }

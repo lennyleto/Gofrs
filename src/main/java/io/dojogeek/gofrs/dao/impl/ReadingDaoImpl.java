@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by Irene on 3/1/16.
  */
 @Repository
+@Transactional
 public class ReadingDaoImpl extends HibernateUtil implements ReadingDao {
 
-    @Transactional
     public ReadingModel createReading(ReadingModel readingModel) {
 
         Session session = getCurrentSession();
@@ -21,8 +21,10 @@ public class ReadingDaoImpl extends HibernateUtil implements ReadingDao {
         return readingModel;
     }
 
-    public ReadingModel updateReading(String id, ReadingModel readingModel) {
-        return null;
+    public ReadingModel updateReading(ReadingModel readingModel) {
+        Session session = getCurrentSession();
+        session.update(readingModel);
+        return readingModel;
     }
 
     public ReadingModel deleteReading(String id) {

@@ -28,7 +28,9 @@ public class ReadingServiceImpl implements ReadingService {
     }
 
     public Reading updateReading(String id, Reading reading) {
-        return null;
+        reading.setId(Integer.parseInt(id));
+        ReadingModel readingModel = readingDao.updateReading(readingMapper.mapToInner(reading));
+        return readingMapper.mapToOuter(readingModel);
     }
 
     public Reading deleteReading(String id) {

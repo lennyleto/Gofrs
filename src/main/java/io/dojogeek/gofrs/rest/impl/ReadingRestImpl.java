@@ -32,11 +32,11 @@ public class ReadingRestImpl implements ReadingRest {
     }
 
     @PUT
-    @Path("/")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updateReading(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id, Reading reading) {
-        return null;
+        return Response.ok(readingService.updateReading(id, reading)).type(MediaType.APPLICATION_JSON).build();
     }
 
     @DELETE

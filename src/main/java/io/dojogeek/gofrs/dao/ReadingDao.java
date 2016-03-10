@@ -9,7 +9,7 @@ public interface ReadingDao {
 
     ReadingModel createReading(ReadingModel readingModel);
 
-    ReadingModel updateReading(String id, ReadingModel readingModel);
+    ReadingModel updateReading(ReadingModel readingModel);
 
     ReadingModel deleteReading(String id);
 

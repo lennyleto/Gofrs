@@ -21,14 +21,14 @@ import javax.ws.rs.core.Response;
 public class ReadingRestImpl implements ReadingRest {
 
     @Autowired
-    ReadingService readingService;
+    private ReadingService readingService;
 
     @POST
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createReading(Reading reading) {
-        return null;
+        return Response.ok(readingService.createReading(reading)).type(MediaType.APPLICATION_JSON).build();
     }
 
     @PUT

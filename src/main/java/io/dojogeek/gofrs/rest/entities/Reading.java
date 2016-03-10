@@ -12,13 +12,13 @@ import java.util.Date;
 @Data
 public class Reading {
 
-    private String id;
-    private String userId;
+    private Integer id;
+    private Integer userId;
     private Date initialDate;
     private LocalTime devotedHours;
-    private int seenPages;
-    private int pagesBeRead;
-    private  int stimatedPages;
-    private int idBook;
+    private Integer seenPages;
+    private Integer pagesBeRead;
+    private  Integer stimatedPages;
+    private Integer idBook;
     private String chapter;
 }

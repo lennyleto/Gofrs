@@ -13,8 +13,8 @@ import javax.persistence.Table;
  */
 @Data
 @Entity
-@Table(name = "books")
-public class Book {
+@Table(name = "notes")
+public class NotesModel {
 
     @Id
     @Column(name = "id")
@@ -23,18 +23,12 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "author")
-    private String author;
+    @Column(name = "date")
+    private DateTime date;
 
-    @Column(name = "releaseDate")
-    private DateTime releaseDate;
+    @Column(name = "body")
+    private String body;
 
-    @Column(name = "editorial")
-    private String editorial;
-
-    @Column(name = "category")
-    private String category;
-
-    @Column(name = "totalPages")
-    private int totalPages;
+    @Column(name = "idBook")
+    private String idBook;
 }

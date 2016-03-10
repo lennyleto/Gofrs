@@ -15,14 +15,14 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "readings")
-public class Reading {
+public class ReadingModel {
 
     @Id
     @Column(name = "id")
-    private String id;
+    private Integer id;
 
     @Column(name = "userId")
-    private String userId;
+    private Integer userId;
 
     @Column(name = "initialDate")
     private Date initialDate;
@@ -31,16 +31,16 @@ public class Reading {
     private LocalTime devotedHours;
 
     @Column(name = "seenPages")
-    private int seenPages;
+    private Integer seenPages;
 
     @Column(name = "pagesBeRead")
-    private int pagesBeRead;
+    private Integer pagesBeRead;
 
     @Column(name = "stimatedPages")
-    private  int stimatedPages;
+    private  Integer stimatedPages;
 
     @Column(name = "idBook")
-    private int idBook;
+    private Integer idBook;
 
     @Column(name = "chapter")
     private String chapter;

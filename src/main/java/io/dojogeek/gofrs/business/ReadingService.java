@@ -11,7 +11,7 @@ public interface ReadingService {
 
     Reading updateReading(String id, Reading reading);
 
-    Reading deleteReading(String id);
+    void deleteReading(String id);
 
     Reading getReadingsByUserId(String userId);
 }

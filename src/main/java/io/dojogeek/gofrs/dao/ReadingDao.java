@@ -11,7 +11,7 @@ public interface ReadingDao {
 
     ReadingModel updateReading(ReadingModel readingModel);
 
-    ReadingModel deleteReading(String id);
+    void deleteReading(String id);
 
     ReadingModel getReadingsByUserId(String userId);
 }

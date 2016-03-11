@@ -40,11 +40,12 @@ public class ReadingRestImpl implements ReadingRest {
     }
 
     @DELETE
-    @Path("/")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response deleteReading(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id) {
-        return null;
+        readingService.deleteReading(id);
+        return Response.status(200).build();
     }
 
     @GET

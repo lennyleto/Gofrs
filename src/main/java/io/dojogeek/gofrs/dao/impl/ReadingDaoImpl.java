@@ -27,8 +27,11 @@ public class ReadingDaoImpl extends HibernateUtil implements ReadingDao {
         return readingModel;
     }
 
-    public ReadingModel deleteReading(String id) {
-        return null;
+    public void deleteReading(String id) {
+        Session session = getCurrentSession();
+        ReadingModel readingModel = new ReadingModel();
+        readingModel.setId(Integer.parseInt(id));
+        session.delete(readingModel);
     }
 
     public ReadingModel getReadingsByUserId(String userId) {

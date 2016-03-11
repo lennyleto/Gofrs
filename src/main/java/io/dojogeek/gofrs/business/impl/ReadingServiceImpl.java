@@ -33,8 +33,8 @@ public class ReadingServiceImpl implements ReadingService {
         return readingMapper.mapToOuter(readingModel);
     }
 
-    public Reading deleteReading(String id) {
-        return null;
+    public void deleteReading(String id) {
+        readingDao.deleteReading(id);
     }
 
     public Reading getReadingsByUserId(String userId) {

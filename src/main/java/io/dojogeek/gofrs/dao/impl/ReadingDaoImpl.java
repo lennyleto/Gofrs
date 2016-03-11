@@ -35,6 +35,10 @@ public class ReadingDaoImpl extends HibernateUtil implements ReadingDao {
     }
 
     public ReadingModel getReadingsByUserId(String userId) {
-        return null;
+
+        Session session = getCurrentSession();
+
+        ReadingModel readingModel = (ReadingModel) session.get(ReadingModel.class, Integer.parseInt(userId));
+        return readingModel;
     }
 }

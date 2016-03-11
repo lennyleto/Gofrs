@@ -49,11 +49,11 @@ public class ReadingRestImpl implements ReadingRest {
     }
 
     @GET
-    @Path("/")
+    @Path("/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getReadingsByUserId(@ApiParam(value = "userId", required = true) @PathParam(value = "userId") String userId) {
 
-        return null;
+        return Response.ok(readingService.getReadingsByUserId(userId)).type(MediaType.APPLICATION_JSON).build();
     }
 }

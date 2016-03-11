@@ -38,6 +38,6 @@ public class ReadingServiceImpl implements ReadingService {
     }
 
     public Reading getReadingsByUserId(String userId) {
-        return null;
+        return readingMapper.mapToOuter(readingDao.getReadingsByUserId(userId));
     }
 }

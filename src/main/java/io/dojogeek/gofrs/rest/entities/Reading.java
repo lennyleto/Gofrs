@@ -1,9 +1,9 @@
 package io.dojogeek.gofrs.rest.entities;
 
 import lombok.Data;
+import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
 
-import java.util.Date;
 
 
 /**
@@ -14,7 +14,7 @@ public class Reading {
 
     private Integer id;
     private Integer userId;
-    private Date initialDate;
+    private DateTime initialDate;
     private LocalTime devotedHours;
     private Integer seenPages;
     private Integer pagesBeRead;

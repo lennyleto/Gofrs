@@ -1,13 +1,11 @@
 package io.dojogeek.gofrs.dao.models;
 
 import lombok.Data;
+import org.eclipse.persistence.annotations.PrimaryKey;
+import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.Date;
+import javax.persistence.*;
 
 /**
  * Created by Irene on 3/1/16.
@@ -19,13 +17,14 @@ public class ReadingModel {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "userId")
     private Integer userId;
 
     @Column(name = "initialDate")
-    private Date initialDate;
+    private DateTime initialDate;
 
     @Column(name = "devotedHours")
     private LocalTime devotedHours;

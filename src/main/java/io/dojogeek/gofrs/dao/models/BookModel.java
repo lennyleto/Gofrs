@@ -1,12 +1,9 @@
 package io.dojogeek.gofrs.dao.models;
 
 import lombok.Data;
-import org.joda.time.DateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by Irene on 3/1/16.
@@ -18,6 +15,7 @@ public class BookModel {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private String id;
 
     @Column(name = "title")
@@ -27,7 +25,7 @@ public class BookModel {
     private String author;
 
     @Column(name = "releaseDate")
-    private DateTime releaseDate;
+    private Date releaseDate;
 
     @Column(name = "editorial")
     private String editorial;

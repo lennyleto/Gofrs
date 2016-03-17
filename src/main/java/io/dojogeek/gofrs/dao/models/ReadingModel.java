@@ -1,11 +1,9 @@
 package io.dojogeek.gofrs.dao.models;
 
 import lombok.Data;
-import org.eclipse.persistence.annotations.PrimaryKey;
-import org.joda.time.DateTime;
-import org.joda.time.LocalTime;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by Irene on 3/1/16.
@@ -24,10 +22,11 @@ public class ReadingModel {
     private Integer userId;
 
     @Column(name = "initialDate")
-    private DateTime initialDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date initialDate;
 
-    @Column(name = "devotedHours")
-    private LocalTime devotedHours;
+    @Column(name = "timeRequiredInMinutes")
+    private Long timeRequiredInMinutes;
 
     @Column(name = "seenPages")
     private Integer seenPages;

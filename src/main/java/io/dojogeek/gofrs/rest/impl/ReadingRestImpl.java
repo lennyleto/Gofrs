@@ -25,24 +25,18 @@ public class ReadingRestImpl implements ReadingRest {
 
     @POST
     @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response createReading(Reading reading) {
         return Response.ok(readingService.createReading(reading)).type(MediaType.APPLICATION_JSON).build();
     }
 
     @PUT
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response updateReading(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id, Reading reading) {
         return Response.ok(readingService.updateReading(id, reading)).type(MediaType.APPLICATION_JSON).build();
     }
 
     @DELETE
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response deleteReading(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id) {
         readingService.deleteReading(id);
         return Response.status(200).build();
@@ -50,8 +44,6 @@ public class ReadingRestImpl implements ReadingRest {
 
     @GET
     @Path("/{userId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response getReadingsByUserId(@ApiParam(value = "userId", required = true) @PathParam(value = "userId") String userId) {
 
         return Response.ok(readingService.getReadingsByUserId(userId)).type(MediaType.APPLICATION_JSON).build();

@@ -1,7 +1,9 @@
 package io.dojogeek.gofrs.rest.impl;
 
+import io.dojogeek.gofrs.business.BookService;
 import io.dojogeek.gofrs.rest.BookRest;
 import io.dojogeek.gofrs.rest.entities.Book;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.*;
@@ -17,10 +19,13 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class BookRestImpl implements BookRest {
 
+    @Autowired
+    private BookService bookService;
+
     @POST
     @Path("/")
     public Response createBook(Book book) {
-        return null;
+        return Response.ok(bookService.createBook(book)).type(MediaType.APPLICATION_JSON).build();
     }
 
     @GET

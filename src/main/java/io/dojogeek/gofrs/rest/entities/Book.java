@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 public class Book {
 
-    private String id;
+    private Integer id;
     private String title;
     private String author;
     @XmlJavaTypeAdapter(DateFormatterAdapter.class)

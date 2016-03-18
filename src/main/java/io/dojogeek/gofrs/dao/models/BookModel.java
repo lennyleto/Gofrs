@@ -16,7 +16,7 @@ public class BookModel {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private String id;
+    private Integer id;
 
     @Column(name = "title")
     private String title;

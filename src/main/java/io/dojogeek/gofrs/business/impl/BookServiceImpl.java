@@ -36,6 +36,6 @@ public class BookServiceImpl implements BookService {
     }
 
     public void deleteBook(String id) {
-
+        bookDao.deleteBook(id);
     }
 }

@@ -43,7 +43,8 @@ public class BookRestImpl implements BookRest {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteBook(String id) {
-        return null;
+    public Response deleteBook(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id) {
+        bookService.deleteBook(id);
+        return Response.status(200).build();
     }
 }

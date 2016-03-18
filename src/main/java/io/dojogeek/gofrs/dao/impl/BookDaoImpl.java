@@ -28,7 +28,9 @@ public class BookDaoImpl extends HibernateUtil implements BookDao {
     }
 
     public BookModel updateBook(BookModel bookModel) {
-        return null;
+        Session session = getCurrentSession();
+        session.update(bookModel);
+        return bookModel;
     }
 
     public void deleteBook(String id) {

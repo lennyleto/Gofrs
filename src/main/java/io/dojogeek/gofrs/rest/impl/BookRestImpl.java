@@ -37,8 +37,8 @@ public class BookRestImpl implements BookRest {
 
     @PUT
     @Path("/{id}")
-    public Response updateBook(String id, Book book) {
-        return null;
+    public Response updateBook(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id, Book book) {
+        return Response.ok(bookService.updateBook(id, book)).type(MediaType.APPLICATION_JSON).build();
     }
 
     @DELETE

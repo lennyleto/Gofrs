@@ -31,7 +31,8 @@ public class BookServiceImpl implements BookService {
     }
 
     public Book updateBook(String id, Book book) {
-        return null;
+        book.setId(Integer.parseInt(id));
+        return bookMapper.mapToOuter(bookDao.updateBook(bookMapper.mapToInner(book)));
     }
 
     public void deleteBook(String id) {

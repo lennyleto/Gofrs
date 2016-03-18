@@ -27,7 +27,7 @@ public class BookServiceImpl implements BookService {
     }
 
    public Book getBookByUserId(String userId) {
-        return null;
+        return bookMapper.mapToOuter(bookDao.getBookByUserId(userId));
     }
 
     public Book updateBook(String id, Book book) {

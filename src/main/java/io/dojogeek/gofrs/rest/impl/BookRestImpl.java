@@ -1,5 +1,6 @@
 package io.dojogeek.gofrs.rest.impl;
 
+import com.wordnik.swagger.annotations.ApiParam;
 import io.dojogeek.gofrs.business.BookService;
 import io.dojogeek.gofrs.rest.BookRest;
 import io.dojogeek.gofrs.rest.entities.Book;
@@ -30,8 +31,8 @@ public class BookRestImpl implements BookRest {
 
     @GET
     @Path("/{userId}")
-    public Response getBookByUserId(String userId) {
-        return null;
+    public Response getBookByUserId(@ApiParam(value = "userId", required = true) @PathParam(value = "userId") String userId) {
+        return Response.ok(bookService.getBookByUserId(userId)).type(MediaType.APPLICATION_JSON).build();
     }
 
     @PUT

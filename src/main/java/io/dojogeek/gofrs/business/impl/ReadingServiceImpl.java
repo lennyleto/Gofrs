@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Irene on 3/1/16.
  */
@@ -37,7 +39,7 @@ public class ReadingServiceImpl implements ReadingService {
         readingDao.deleteReading(id);
     }
 
-    public Reading getReadingsByUserId(String userId) {
-        return readingMapper.mapToOuter(readingDao.getReadingsByUserId(userId));
+    public List<Reading> getReadingsByUserId(String userId) {
+        return readingMapper.mapReadingList(readingDao.getReadingsByUserId(userId));
     }
 }

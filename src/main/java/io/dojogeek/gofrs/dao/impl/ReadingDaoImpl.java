@@ -3,9 +3,12 @@ package io.dojogeek.gofrs.dao.impl;
 import io.dojogeek.gofrs.dao.ReadingDao;
 import io.dojogeek.gofrs.dao.models.ReadingModel;
 import io.dojogeek.gofrs.util.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Irene on 3/1/16.
@@ -34,11 +37,11 @@ public class ReadingDaoImpl extends HibernateUtil implements ReadingDao {
         session.delete(readingModel);
     }
 
-    public ReadingModel getReadingsByUserId(String userId) {
+    public List<ReadingModel> getReadingsByUserId(String userId) {
 
         Session session = getCurrentSession();
-
-        ReadingModel readingModel = (ReadingModel) session.get(ReadingModel.class, Integer.parseInt(userId));
+        Criteria criteria = session.createCriteria(ReadingModel.class, userId);
+        List<ReadingModel> readingModel = criteria.list();
         return readingModel;
     }
 }

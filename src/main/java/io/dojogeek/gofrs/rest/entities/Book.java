@@ -19,4 +19,5 @@ public class Book {
     private String editorial;
     private String category;
     private int totalPages;
+    private Integer userId;
 }

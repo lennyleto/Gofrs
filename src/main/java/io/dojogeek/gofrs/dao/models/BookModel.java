@@ -35,4 +35,7 @@ public class BookModel {
 
     @Column(name = "totalPages")
     private int totalPages;
+
+    @Column(name = "userId")
+    private Integer userId;
 }

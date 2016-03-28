@@ -2,6 +2,8 @@ package io.dojogeek.gofrs.business;
 
 import io.dojogeek.gofrs.rest.entities.Reading;
 
+import java.util.List;
+
 /**
  * Created by Irene on 3/1/16.
  */
@@ -13,5 +15,5 @@ public interface ReadingService {
 
     void deleteReading(String id);
 
-    Reading getReadingsByUserId(String userId);
+    List<Reading> getReadingsByUserId(String userId);
 }

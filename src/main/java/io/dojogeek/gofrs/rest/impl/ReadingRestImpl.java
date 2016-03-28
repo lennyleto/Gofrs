@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 /**
  * Created by Irene on 2/18/16.
@@ -44,8 +46,10 @@ public class ReadingRestImpl implements ReadingRest {
 
     @GET
     @Path("/{userId}")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response getReadingsByUserId(@ApiParam(value = "userId", required = true) @PathParam(value = "userId") String userId) {
-
-        return Response.ok(readingService.getReadingsByUserId(userId)).type(MediaType.APPLICATION_JSON).build();
+        List<Reading> readingList = readingService.getReadingsByUserId(userId);
+        return Response.ok().entity(new GenericEntity<List<Reading>>(readingList){}).type(MediaType.APPLICATION_JSON).build();
     }
 }

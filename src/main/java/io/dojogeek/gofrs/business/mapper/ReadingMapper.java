@@ -6,6 +6,9 @@ import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Irene on 3/9/16.
  */
@@ -23,5 +26,13 @@ public class ReadingMapper {
         Mapper mapper = new DozerBeanMapper();
         Reading reading = mapper.map(readingModel, Reading.class);
         return reading;
+    }
+
+    public List<Reading> mapReadingList(List<ReadingModel> readingModelList) {
+        List<Reading> readingList = new ArrayList<Reading>();
+        for (ReadingModel readingModel : readingModelList) {
+            readingList.add(mapToOuter(readingModel));
+        }
+        return readingList;
     }
 }

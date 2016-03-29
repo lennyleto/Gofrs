@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 /**
  * Created by Irene on 3/17/16.
@@ -32,7 +34,8 @@ public class BookRestImpl implements BookRest {
     @GET
     @Path("/{userId}")
     public Response getBookByUserId(@ApiParam(value = "userId", required = true) @PathParam(value = "userId") String userId) {
-        return Response.ok(bookService.getBookByUserId(userId)).type(MediaType.APPLICATION_JSON).build();
+        List<Book> bookList = bookService.getBookByUserId(userId);
+        return Response.ok().entity(new GenericEntity<List<Book>>(bookList){}).type(MediaType.APPLICATION_JSON).build();
     }
 
     @PUT

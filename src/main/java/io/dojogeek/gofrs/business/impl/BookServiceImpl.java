@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Irene on 3/17/16.
  */
@@ -26,8 +28,8 @@ public class BookServiceImpl implements BookService {
         return bookMapper.mapToOuter(bookDao.createBook(bookMapper.mapToInner(book)));
     }
 
-   public Book getBookByUserId(String userId) {
-        return bookMapper.mapToOuter(bookDao.getBookByUserId(userId));
+   public List<Book> getBookByUserId(String userId) {
+        return bookMapper.mapBookList(bookDao.getBookByUserId(userId));
     }
 
     public Book updateBook(String id, Book book) {

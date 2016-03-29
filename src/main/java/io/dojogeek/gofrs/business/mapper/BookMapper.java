@@ -6,6 +6,9 @@ import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Irene on 3/10/16.
  */
@@ -23,4 +26,13 @@ public class BookMapper {
         Book book = mapper.map(bookModel, Book.class);
         return book;
     }
+
+    public List<Book> mapBookList(List<BookModel> bookModels) {
+        List<Book> bookList = new ArrayList<Book>();
+        for (BookModel bookModel : bookModels) {
+            bookList.add(mapToOuter(bookModel));
+        }
+        return bookList;
+    }
+
 }

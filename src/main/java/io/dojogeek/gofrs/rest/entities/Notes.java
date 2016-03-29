@@ -1,7 +1,7 @@
 package io.dojogeek.gofrs.rest.entities;
 
 import lombok.Data;
-import org.joda.time.DateTime;
+import java.util.Date;
 
 /**
  * Created by Irene on 2/18/16.
@@ -9,9 +9,9 @@ import org.joda.time.DateTime;
 @Data
 public class Notes {
 
-    private String id;
+    private Integer id;
     private String title;
-    private DateTime date;
+    private Date date;
     private String body;
-    private String idBook;
+    private Integer idBook;
 }

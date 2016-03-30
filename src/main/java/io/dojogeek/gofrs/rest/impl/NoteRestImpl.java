@@ -44,7 +44,10 @@ public class NoteRestImpl implements NoteRest {
         return Response.ok(noteService.updateNote(id,notes)).type(MediaType.APPLICATION_JSON).build();
     }
 
-    public Response deleteNote(String id) {
-        return null;
+    @DELETE
+    @Path("/{id}")
+    public Response deleteNote(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id) {
+        noteService.deleteNote(id);
+        return Response.status(200).build();
     }
 }

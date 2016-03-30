@@ -37,6 +37,6 @@ public class NoteServiceImpl implements NoteService {
     }
 
     public void deleteNote(String id) {
-
+        noteDao.deleteNote(id);
     }
 }

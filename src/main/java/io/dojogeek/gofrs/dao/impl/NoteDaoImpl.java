@@ -40,6 +40,9 @@ public class NoteDaoImpl extends HibernateUtil implements NoteDao {
     }
 
     public void deleteNote(String id) {
-
+        Session session = getCurrentSession();
+        NotesModel notesModel = new NotesModel();
+        notesModel.setId(Integer.parseInt(id));
+        session.delete(notesModel);
     }
 }

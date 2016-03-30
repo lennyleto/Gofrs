@@ -3,6 +3,7 @@ package io.dojogeek.gofrs.dao.impl;
 import io.dojogeek.gofrs.dao.BookDao;
 import io.dojogeek.gofrs.dao.models.BookModel;
 import io.dojogeek.gofrs.dao.models.NotesModel;
+import io.dojogeek.gofrs.rest.entities.Book;
 import io.dojogeek.gofrs.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -27,7 +28,7 @@ public class BookDaoImpl extends HibernateUtil implements BookDao {
     public List<BookModel> getBookByUserId(String userId) {
 
         Session session = getCurrentSession();
-        Criteria criteria = session.createCriteria(NotesModel.class, userId);
+        Criteria criteria = session.createCriteria(BookModel.class, userId);
         List<BookModel> bookModel = criteria.list();
         return bookModel;
     }

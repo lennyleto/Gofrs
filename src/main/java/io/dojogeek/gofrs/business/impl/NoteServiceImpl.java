@@ -1,7 +1,11 @@
 package io.dojogeek.gofrs.business.impl;
 
 import io.dojogeek.gofrs.business.NoteService;
+import io.dojogeek.gofrs.business.mapper.NotesMapper;
+import io.dojogeek.gofrs.dao.NoteDao;
 import io.dojogeek.gofrs.rest.entities.Notes;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +16,15 @@ import java.util.List;
 @Service
 public class NoteServiceImpl implements NoteService {
 
+    @Autowired
+    private NoteDao noteDao;
+
+    @Autowired
+    @Qualifier("notes-mapper")
+    private NotesMapper notesMapper;
+
     public Notes createNote(Notes notes) {
-        return null;
+        return notesMapper.mapToOuter(noteDao.createNote(notesMapper.mapToInner(notes)));
     }
 
     public List<Notes> getNotesByUserId(String userId) {

@@ -2,6 +2,8 @@ package io.dojogeek.gofrs.dao.impl;
 
 import io.dojogeek.gofrs.dao.NoteDao;
 import io.dojogeek.gofrs.dao.models.NotesModel;
+import io.dojogeek.gofrs.util.HibernateUtil;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,10 +14,13 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class NoteDaoImpl implements NoteDao {
+public class NoteDaoImpl extends HibernateUtil implements NoteDao {
 
     public NotesModel createNote(NotesModel notesModel) {
-        return null;
+
+        Session session = getCurrentSession();
+        session.save(notesModel);
+        return notesModel;
     }
 
     public List<NotesModel> getNotesByUserId(String userId) {

@@ -7,6 +7,7 @@ import io.dojogeek.gofrs.rest.entities.Book;
 import io.dojogeek.gofrs.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +29,7 @@ public class BookDaoImpl extends HibernateUtil implements BookDao {
     public List<BookModel> getBookByUserId(String userId) {
 
         Session session = getCurrentSession();
-        Criteria criteria = session.createCriteria(BookModel.class, userId);
+        Criteria criteria = session.createCriteria(BookModel.class).add(Restrictions.eq("userId", Integer.parseInt(userId)));
         List<BookModel> bookModel = criteria.list();
         return bookModel;
     }

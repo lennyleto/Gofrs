@@ -3,6 +3,7 @@ package io.dojogeek.gofrs.dao.impl;
 import io.dojogeek.gofrs.dao.NoteDao;
 import io.dojogeek.gofrs.dao.models.NotesModel;
 import io.dojogeek.gofrs.util.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +25,11 @@ public class NoteDaoImpl extends HibernateUtil implements NoteDao {
     }
 
     public List<NotesModel> getNotesByUserId(String userId) {
-        return null;
+
+        Session session = getCurrentSession();
+        Criteria criteria = session.createCriteria(NotesModel.class, userId);
+        List<NotesModel> notesModels = criteria.list();
+        return notesModels;
     }
 
     public NotesModel updateNote(NotesModel notesModel) {

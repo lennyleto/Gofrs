@@ -28,7 +28,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     public List<Notes> getNotesByUserId(String userId) {
-        return null;
+        return notesMapper.mapNoteList(noteDao.getNotesByUserId(userId));
     }
 
     public Notes updateNote(String id, Notes notes) {

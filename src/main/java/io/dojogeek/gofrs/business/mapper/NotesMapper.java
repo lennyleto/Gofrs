@@ -28,7 +28,7 @@ public class NotesMapper {
         return  notes;
     }
 
-    List<Notes> mapNoteList(List<NotesModel> notesModelList) {
+    public List<Notes> mapNoteList(List<NotesModel> notesModelList) {
         List<Notes> notesList = new ArrayList<Notes>();
         for(NotesModel notesModel : notesModelList) {
             notesList.add(mapToOuter(notesModel));

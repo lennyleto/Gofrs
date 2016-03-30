@@ -33,7 +33,10 @@ public class NoteDaoImpl extends HibernateUtil implements NoteDao {
     }
 
     public NotesModel updateNote(NotesModel notesModel) {
-        return null;
+
+        Session session = getCurrentSession();
+        session.update(notesModel);
+        return notesModel;
     }
 
     public void deleteNote(String id) {

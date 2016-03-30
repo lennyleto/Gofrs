@@ -32,7 +32,8 @@ public class NoteServiceImpl implements NoteService {
     }
 
     public Notes updateNote(String id, Notes notes) {
-        return null;
+        notes.setId(Integer.parseInt(id));
+        return notesMapper.mapToOuter(noteDao.updateNote(notesMapper.mapToInner(notes)));
     }
 
     public void deleteNote(String id) {

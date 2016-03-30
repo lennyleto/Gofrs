@@ -38,8 +38,10 @@ public class NoteRestImpl implements NoteRest {
         return Response.ok().entity(new GenericEntity<List<Notes>>(notesList){}).type(MediaType.APPLICATION_JSON).build();
     }
 
-    public Response updateNote(String id, Notes notes) {
-        return null;
+    @PUT
+    @Path("/{id}")
+    public Response updateNote(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id, Notes notes) {
+        return Response.ok(noteService.updateNote(id,notes)).type(MediaType.APPLICATION_JSON).build();
     }
 
     public Response deleteNote(String id) {

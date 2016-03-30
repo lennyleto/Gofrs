@@ -28,4 +28,7 @@ public class NotesModel {
 
     @Column(name = "idBook")
     private Integer idBook;
+
+    @Column(name = "userId")
+    private Integer userId;
 }

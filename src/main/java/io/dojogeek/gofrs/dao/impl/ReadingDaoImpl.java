@@ -5,6 +5,7 @@ import io.dojogeek.gofrs.dao.models.ReadingModel;
 import io.dojogeek.gofrs.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,7 +41,7 @@ public class ReadingDaoImpl extends HibernateUtil implements ReadingDao {
     public List<ReadingModel> getReadingsByUserId(String userId) {
 
         Session session = getCurrentSession();
-        Criteria criteria = session.createCriteria(ReadingModel.class, userId);
+        Criteria criteria = session.createCriteria(ReadingModel.class).add(Restrictions.eq("userId", Integer.parseInt(userId)));
         List<ReadingModel> readingModel = criteria.list();
         return readingModel;
     }

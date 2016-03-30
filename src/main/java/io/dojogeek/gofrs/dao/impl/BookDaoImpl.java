@@ -2,10 +2,16 @@ package io.dojogeek.gofrs.dao.impl;
 
 import io.dojogeek.gofrs.dao.BookDao;
 import io.dojogeek.gofrs.dao.models.BookModel;
+import io.dojogeek.gofrs.dao.models.NotesModel;
+import io.dojogeek.gofrs.rest.entities.Book;
 import io.dojogeek.gofrs.util.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Irene on 3/17/16.
@@ -20,10 +26,11 @@ public class BookDaoImpl extends HibernateUtil implements BookDao {
         return bookModel;
     }
 
-    public BookModel getBookByUserId(String userId) {
+    public List<BookModel> getBookByUserId(String userId) {
 
         Session session = getCurrentSession();
-        BookModel bookModel = (BookModel) session.get(BookModel.class, Integer.parseInt(userId));
+        Criteria criteria = session.createCriteria(BookModel.class).add(Restrictions.eq("userId", Integer.parseInt(userId)));
+        List<BookModel> bookModel = criteria.list();
         return bookModel;
     }
 

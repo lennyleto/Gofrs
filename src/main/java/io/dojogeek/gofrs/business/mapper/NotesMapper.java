@@ -6,6 +6,9 @@ import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Irene on 3/10/16.
  */
@@ -23,5 +26,13 @@ public class NotesMapper {
         Mapper mapper = new DozerBeanMapper();
         Notes notes = mapper.map(notesModel, Notes.class);
         return  notes;
+    }
+
+    public List<Notes> mapNoteList(List<NotesModel> notesModelList) {
+        List<Notes> notesList = new ArrayList<Notes>();
+        for(NotesModel notesModel : notesModelList) {
+            notesList.add(mapToOuter(notesModel));
+        }
+        return notesList;
     }
 }

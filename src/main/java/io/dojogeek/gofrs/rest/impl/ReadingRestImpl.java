@@ -46,8 +46,6 @@ public class ReadingRestImpl implements ReadingRest {
 
     @GET
     @Path("/{userId}")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response getReadingsByUserId(@ApiParam(value = "userId", required = true) @PathParam(value = "userId") String userId) {
         List<Reading> readingList = readingService.getReadingsByUserId(userId);
         return Response.ok().entity(new GenericEntity<List<Reading>>(readingList){}).type(MediaType.APPLICATION_JSON).build();

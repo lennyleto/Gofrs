@@ -3,9 +3,13 @@ package io.dojogeek.gofrs.dao.impl;
 import io.dojogeek.gofrs.dao.UserDao;
 import io.dojogeek.gofrs.dao.models.UserModel;
 import io.dojogeek.gofrs.util.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Irene on 4/13/16.
@@ -20,5 +24,13 @@ public class UserDaoImpl extends HibernateUtil implements UserDao{
         Session session = getCurrentSession();
         session.save(userModel);
         return userModel;
+    }
+
+    public List<UserModel> getUserById(String id) {
+
+        Session session = getCurrentSession();
+        Criteria criteria = session.createCriteria(UserModel.class).add(Restrictions.eq("id", Integer.parseInt(id)));
+        List<UserModel> userModels = criteria.list();
+        return userModels;
     }
 }

@@ -10,4 +10,6 @@ import javax.ws.rs.core.Response;
 public interface UserRest {
 
     Response createUser(User user);
+
+    Response getUserById(String id);
 }

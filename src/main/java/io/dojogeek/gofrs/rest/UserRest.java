@@ -14,4 +14,6 @@ public interface UserRest {
     Response getUserById(String id);
 
     Response updateUser(String id, User user);
+
+    Response deleteUser(String id);
 }

@@ -35,4 +35,8 @@ public class UserServiceImpl implements UserService {
         user.setId(Integer.parseInt(id));
         return userMapper.mapToOuter(userDao.updateUser(userMapper.mapToInner(user)));
     }
+
+    public void deleteUser(String id) {
+        userDao.deleteUser(id);
+    }
 }

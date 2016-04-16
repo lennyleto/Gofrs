@@ -17,7 +17,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserDaoImpl extends HibernateUtil implements UserDao{
+public class UserDaoImpl extends HibernateUtil implements UserDao {
 
     public UserModel createUser(UserModel userModel) {
 
@@ -39,5 +39,14 @@ public class UserDaoImpl extends HibernateUtil implements UserDao{
         Session session = getCurrentSession();
         session.update(userModel);
         return userModel;
+    }
+
+    public void deleteUser(String id) {
+
+        Session session = getCurrentSession();
+        UserModel userModel = new UserModel();
+        userModel.setId(Integer.parseInt(id));
+        session.delete(userModel);
+
     }
 }

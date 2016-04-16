@@ -44,4 +44,11 @@ public class UserRestImpl implements UserRest {
     public Response updateUser(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id, User user) {
         return Response.ok(userService.updateUser(id, user)).type(MediaType.APPLICATION_JSON).build();
     }
+
+    @DELETE
+    @Path("/{id}")
+    public Response deleteUser(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id) {
+        userService.deleteUser(id);
+        return Response.status(200).build();
+    }
 }

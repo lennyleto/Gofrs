@@ -14,4 +14,6 @@ public interface UserDao {
     List<UserModel> getUserById(String id);
 
     UserModel updateUser(UserModel userModel);
+
+    void deleteUser(String id);
 }

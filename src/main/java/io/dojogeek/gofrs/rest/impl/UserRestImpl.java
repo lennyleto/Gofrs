@@ -25,17 +25,23 @@ public class UserRestImpl implements UserRest {
     @Autowired
     private UserService userService;
 
-    @Path("/")
     @POST
+    @Path("/")
     public Response createUser(User user) {
         return Response.ok(userService.createUser(user)).type(MediaType.APPLICATION_JSON).build();
     }
 
-    @Path("/{id}")
     @GET
+    @Path("/{id}")
     public Response getUserById(@ApiParam(value = "id", required = true) @PathParam(value = "id")String id) {
 
         List<User> userList = userService.getUserById(id);
         return Response.ok().entity(new GenericEntity<List<User>>(userList){}).type(MediaType.APPLICATION_JSON).build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    public Response updateUser(@ApiParam(value = "id", required = true) @PathParam(value = "id") String id, User user) {
+        return Response.ok(userService.updateUser(id, user)).type(MediaType.APPLICATION_JSON).build();
     }
 }

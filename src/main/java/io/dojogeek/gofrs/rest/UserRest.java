@@ -12,4 +12,6 @@ public interface UserRest {
     Response createUser(User user);
 
     Response getUserById(String id);
+
+    Response updateUser(String id, User user);
 }

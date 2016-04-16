@@ -33,4 +33,11 @@ public class UserDaoImpl extends HibernateUtil implements UserDao{
         List<UserModel> userModels = criteria.list();
         return userModels;
     }
+
+    public UserModel updateUser(UserModel userModel) {
+
+        Session session = getCurrentSession();
+        session.update(userModel);
+        return userModel;
+    }
 }

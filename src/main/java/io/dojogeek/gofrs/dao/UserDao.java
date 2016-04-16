@@ -12,4 +12,6 @@ public interface UserDao {
     UserModel createUser(UserModel userModel);
 
     List<UserModel> getUserById(String id);
+
+    UserModel updateUser(UserModel userModel);
 }

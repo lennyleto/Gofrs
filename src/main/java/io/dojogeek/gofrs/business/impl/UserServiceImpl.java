@@ -30,4 +30,9 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserById(String id) {
         return userMapper.mapUserList(userDao.getUserById(id));
     }
+
+    public User updateUser(String id, User user) {
+        user.setId(Integer.parseInt(id));
+        return userMapper.mapToOuter(userDao.updateUser(userMapper.mapToInner(user)));
+    }
 }

@@ -27,7 +27,7 @@ public class UserMapper {
         return user;
     }
 
-    public List<User> mapBookList(List<UserModel> userModels) {
+    public List<User> mapUserList(List<UserModel> userModels) {
         List<User> userList = new ArrayList<User>();
         for (UserModel userModel : userModels) {
             userList.add(mapToOuter(userModel));

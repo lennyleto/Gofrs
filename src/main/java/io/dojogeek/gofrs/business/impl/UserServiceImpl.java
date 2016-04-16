@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Irene on 4/13/16.
  */
@@ -23,5 +25,18 @@ public class UserServiceImpl implements UserService {
 
     public User createUser(User user) {
         return userMapper.mapToOuter(userDao.createUser(userMapper.mapToInner(user)));
+    }
+
+    public List<User> getUserById(String id) {
+        return userMapper.mapUserList(userDao.getUserById(id));
+    }
+
+    public User updateUser(String id, User user) {
+        user.setId(Integer.parseInt(id));
+        return userMapper.mapToOuter(userDao.updateUser(userMapper.mapToInner(user)));
+    }
+
+    public void deleteUser(String id) {
+        userDao.deleteUser(id);
     }
 }
